@@ -17,6 +17,7 @@ public class StringMethodsPractice {
         System.out.println(Asserts.assertEquals(trim(s2), s2));
         System.out.println(Asserts.assertEquals(trim(s4), s2));
         System.out.println(Asserts.assertEquals(trim(s), s2));
+        System.out.println(Asserts.assertEquals(trim(s3), s2));
 
     }
 
