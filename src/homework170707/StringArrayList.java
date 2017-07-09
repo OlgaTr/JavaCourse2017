@@ -35,7 +35,10 @@ public class StringArrayList {
     public boolean remove(String string) {
         int index = -1;
         for (int i = 0; i < size; i++) {
-            if (elements[i].equals(string)) index = i;
+            if (elements[i].equals(string)) {
+                index = i;
+                break;
+            }
         }
         if (index == -1) return false;
 
