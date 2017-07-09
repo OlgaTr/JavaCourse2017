@@ -12,6 +12,7 @@ public class StringMethodsPractice {
         String s5 = "  He l l o  ";
         String s6 = "";
         String s7 = "lullaby";
+        String s8 = "desuetude";
 
 
         System.out.println(Asserts.assertEquals(trim(s6), ""));
@@ -23,6 +24,7 @@ public class StringMethodsPractice {
 
         System.out.println(Asserts.assertEquals(replace(s2, 'l', 'p'), "Heppo"));
         System.out.println(Asserts.assertEquals(replace(s7, 'l', 'r'), "rurraby"));
+        System.out.println(Asserts.assertEquals(replace(s8, 'e', 'i'), "disuitudi"));
 
     }
 
