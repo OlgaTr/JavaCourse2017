@@ -14,6 +14,8 @@ public class StringMethodsPractice {
 
 
         System.out.println(Asserts.assertEquals(trim(s6), ""));
+        System.out.println(Asserts.assertEquals(trim(s2), s2));
+
 
     }
 
