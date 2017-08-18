@@ -2,8 +2,6 @@ package homework170809;
 
 import homework170809.Dictionary.Pair;
 
-import java.util.Random;
-
 public class UseDictionary {
 
     public static void main(String[] args) {
@@ -33,51 +31,53 @@ public class UseDictionary {
 
         Dictionary<Integer, Integer> d = new Dictionary<>();
         System.out.println("1000 elements:");
-        fillDictionaryIntegers(d, 1000);
+        fillDictionary(d, 1000);
         getElement(d, 100);
         System.out.println("Number of elements: " + numberOfElements(d));
+        deleteElement(d, 500);
         System.out.println("Size: "+ d.getSize());
 
         d = new Dictionary<>();
         System.out.println();
         System.out.println("10000 elements:");
-        fillDictionaryIntegers(d, 10000);
+        fillDictionary(d, 10000);
         getElement(d, 100);
         System.out.println("Number of elements: " + numberOfElements(d));
+        deleteElement(d, 500);
         System.out.println("Size: "+ d.getSize());
 
         d = new Dictionary<>();
         System.out.println();
         System.out.println("100000 elements:");
-        fillDictionaryIntegers(d, 100000);
+        fillDictionary(d, 100000);
         getElement(d, 100);
         System.out.println("Number of elements: " + numberOfElements(d));
+        deleteElement(d, 500);
         System.out.println("Size: "+ d.getSize());
 
     }
 
-    private static void addIntegers (Dictionary<Integer, Integer> d) {
-        Random r = new Random();
-        Random r1 = new Random();
-        int key = r.nextInt(1000000000);
-        int value = r1.nextInt(1000000000);
-        d.put(key, value);
-    }
-
-    private static void fillDictionaryIntegers (Dictionary<Integer, Integer> d, int n) {
+    private static void fillDictionary(Dictionary<Integer, Integer> d, int n) {
         long start = System.currentTimeMillis();
         for (int i = 0; i < n; i++) {
-            addIntegers(d);
+            d.put(i, 7);
         }
         long finish = System.currentTimeMillis();
         System.out.println("Adding " + n + " elements: " + (finish - start) + " nanosec.");
     }
 
-    private static void getElement (Dictionary<Integer, Integer> d, int n) {
+    private static void getElement (Dictionary<Integer, Integer> d, int key) {
         long start = System.nanoTime();
-        d.get(n);
+        d.get(key);
         long finish = System.nanoTime();
         System.out.println("Getting an element: " + (finish - start) + " nanosec.");
+    }
+
+    private static void deleteElement (Dictionary<Integer, Integer> d, int key) {
+        long start = System.nanoTime();
+        d.delete(key);
+        long finish = System.nanoTime();
+        System.out.println("Removing an element: " + (finish - start) + " nanosec.");
     }
 
     private static int numberOfElements (Dictionary<Integer, Integer> d) {
