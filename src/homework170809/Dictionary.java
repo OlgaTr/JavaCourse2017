@@ -79,27 +79,20 @@ public class Dictionary <K, V> implements Iterable <Pair>{
     }
 
     private void resize() {
-        List<Pair>[] auxiliary = new List[data.length * 2];
+        List<Pair> auxiliary = new ArrayList<>();
         for (int i = 0; i < data.length; i++) {
             if (data[i] == null) continue;
-            for(Pair pair : data[i]) {
-                int index = hash((K)pair.key);
-                if (auxiliary[index] == null) {
-                    auxiliary[index] = new ArrayList<>();
-                }
-                auxiliary[index].add(new Pair(pair.key, pair.value));
+            for (Pair pair : data[i]) {
+                auxiliary.add(pair);
             }
         }
-        data = new List[auxiliary.length];
-        for (int i = 0; i < auxiliary.length; i++) {
-            if (auxiliary[i] == null) continue;
-            for(Pair pair : auxiliary[i]) {
-                int index = hash((K)pair.key);
-                if (data[index] == null) {
-                    data[index] = new ArrayList<>();
-                }
-                data[index].add(new Pair(pair.key, pair.value));
+        data = new List[data.length * 2];
+        for (Pair pair : auxiliary) {
+            int index = hash((K)pair.key);
+            if (data[index] == null) {
+                data[index] = new ArrayList<>();
             }
+            data[index].add(new Pair(pair.key, pair.value));
         }
     }
 
