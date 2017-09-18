@@ -34,13 +34,6 @@ class TablePile extends CardPile {
     @Override
     public void select(int tx, int ty) {
 
-        // if face down, then flip
-        Card topCard = top();
-        if (!topCard.isFaceUp()) {
-            topCard.flip();
-            return;
-        }
-
         if ( (Solitare.lastTouchedCard != null) &&
                 (Solitare.lastTouchedPile != this) &&
                 canTake(Solitare.lastTouchedCard) ) {

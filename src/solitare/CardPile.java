@@ -55,15 +55,23 @@ class CardPile {
     }
 
     public void remove(Card card) {
+
+        Card newTop = card.link;
+
         if (card == firstCard) {
             pop();
-            return;
         }
 
-        for (Card curCard = top(); curCard != null; curCard = curCard.link) {
-            if (curCard == card) {
-                firstCard = card.link;
+        else {
+            for (Card curCard = top(); curCard != null; curCard = curCard.link) {
+                if (curCard == card) {
+                    firstCard = card.link;
+                }
             }
+        }
+
+        if (newTop != null && !newTop.isFaceUp()) {
+            newTop.flip();
         }
     }
 
