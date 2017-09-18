@@ -38,6 +38,11 @@ class DeckPile extends CardPile {
         Solitare.lastTouchedCard = null;
 
         if (empty()) {
+            while (!Solitare.discardPile.empty()) {
+                Card aCard = Solitare.discardPile.pop();
+                aCard.flip();
+                push(aCard);
+            }
             return;
         }
 
